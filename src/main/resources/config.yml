@@ -1,0 +1,33 @@
+# -------------- Configurable options --------------
+# Refer to https://link-to-help.com for a detailed configuration guide
+
+# - Enable debug logs
+# Can be enabled to help with debugging. Generally not recommended as it will spam your server terminal with nonsense.
+debug: false
+
+# - The character to use when censoring words
+censor-character: '*'
+
+# - Partially censor words. If enabled, the first letter of a censored word will be left uncensored
+# E.g. censoring "banana" would show as "b*****" instead of "******"
+partial-censor: false
+
+# - Notify staff members. If enabled, players with the 'curseguard.staff.notifications' permission will get a message
+# when a word has been censored or blocked.
+notify-staff: true
+
+# - Decide what the plugin should apply filters to
+filters:
+  chat: true                # Player chat messages
+  signs: true               # Text on signs
+  item-names: true          # Item names
+
+# - Anti-spam feature. Limits the number of messages players can send during a specified time span.
+# E.g. setting messages: 5 and time-span: 5 will allow 5 messages every 5 seconds. (or 1 message per second, on average)
+# NOTE: Only works if chat filter is enabled.
+anti-spam:
+  enable: true              # Enable the anti-spam feature
+  messages: 5               # Number of messages to allow during the time span
+  time-span: 5              # Number in seconds
+
+# -------------- Configurable options end --------------

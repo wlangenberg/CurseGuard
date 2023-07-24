@@ -1,0 +1,8 @@
+name: CurseGuard
+version: '${project.version}'
+main: dev.spaxter.curseguard.CurseGuard
+api-version: 1.19
+commands:
+  cg:
+    description: Main command
+    usage: /cg [addword/removeword/listwords]
