@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 public class RemoveWordCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
-        if (commandSender.hasPermission("charguard.words.delete")) {
+        if (commandSender.hasPermission("curseguard.words.remove")) {
             if (args.length != 1) {
                 return false;
             }
