@@ -32,4 +32,16 @@ public class Words {
         }
     }
 
+    public static void addExemptWord(String word) {
+        UUID wordId = UUID.randomUUID();
+        try {
+            Database.executeUpdate(
+                "INSERT INTO exempt_words VALUES (CAST(? AS TEXT), CAST(? AS TEXT))",
+                new String[]{wordId.toString(), word.toLowerCase()}
+            );
+        } catch (SQLException e) {
+            Logger.error("Failed to add word to database: " + e.getMessage());
+        }
+    }
+
 }
