@@ -46,6 +46,11 @@ public class GlobalMemory {
         }
     }
 
+    public static void addExemptWord(final String word) {
+        Words.addExemptWord(word);
+        exemptWords.add(word);
+    }
+
     public static void loadExemptWords() {
         try {
             QueryResult res = Database.executeFetch("SELECT * FROM exempt_words;");
