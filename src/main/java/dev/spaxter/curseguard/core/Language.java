@@ -12,6 +12,9 @@ public class Language {
         public static String MESSAGE_CENSORED_STAFF = ChatColor.translateAlternateColorCodes('&', CurseGuard.languageConfig.getString("general.message-censored-staff-notification"));
         public static String ADD_WORD_INVALID_ACTION = ChatColor.translateAlternateColorCodes('&', CurseGuard.languageConfig.getString("general.add-word-invalid-action"));
         public static String ADD_WORD_WORD_EXISTS = ChatColor.translateAlternateColorCodes('&', CurseGuard.languageConfig.getString("general.add-word-word-exists"));
+        public static String ADD_EXEMPT_WORD_SUCCESS = ChatColor.translateAlternateColorCodes('&', CurseGuard.languageConfig.getString("general.add-exempt-word-success"));
+        public static String ADD_EXEMPT_WORD_WORD_EXISTS = ChatColor.translateAlternateColorCodes('&', CurseGuard.languageConfig.getString("general.add-exempt-word-word-exists"));
+        public static String ADD_EXEMPT_WORD_WORD_EXISTS_IN_FILTER = ChatColor.translateAlternateColorCodes('&', CurseGuard.languageConfig.getString("general.add-exempt-word-word-exists-in-filter"));
         public static String ADD_WORD_SUCCESS = ChatColor.translateAlternateColorCodes('&', CurseGuard.languageConfig.getString("general.add-word-success"));
         public static String REMOVE_WORD_SUCCESS = ChatColor.translateAlternateColorCodes('&', CurseGuard.languageConfig.getString("general.remove-word-success"));
         public static String REMOVE_WORD_NOT_FOUND = ChatColor.translateAlternateColorCodes('&', CurseGuard.languageConfig.getString("general.remove-word-not-found"));
