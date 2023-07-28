@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.sql.SQLException;
 
-public final class CurseGuard extends JavaPlugin {
+public class CurseGuard extends JavaPlugin {
 
     public static FileConfiguration languageConfig;
     public static Float version = 1.0f;
