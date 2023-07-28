@@ -8,21 +8,11 @@ import java.sql.*;
 
 public class Database {
 
-    public static Connection databaseConnection;
+    private static String connectionString;
 
-    public static void initDatabaseConnection(final String folder) throws SQLException {
-        databaseConnection = DriverManager.getConnection("jdbc:sqlite:" + folder + "curseguard.sql");
-        databaseConnection.setAutoCommit(false);
+    public static void setConnectionString(final String folder) throws SQLException {
+        connectionString = "jdbc:sqlite:" + folder.replace("\\", "\\\\") + "curseguard.sql";
         Logger.debug("Initialized SQLite database");
-    }
-
-    public static void closeDatabaseConnection() {
-        try {
-            if (!databaseConnection.isClosed()) {
-                databaseConnection.close();
-                Logger.debug("Closed SQLite database connection");
-            }
-        } catch (SQLException ignored) {};
     }
 
     public static void createInitialTables() {
@@ -41,38 +31,54 @@ public class Database {
     }
 
     public static void executeUpdate(final String sql, String[] parameters) throws SQLException {
+        Connection databaseConnection = DriverManager.getConnection(connectionString);
+        databaseConnection.setAutoCommit(false);
         PreparedStatement statement = databaseConnection.prepareStatement(sql);
         for (int i = 0; i < parameters.length; i++) {
             statement.setString(i + 1, parameters[i]);
         }
         Logger.debug("Executing update statement: " + Ansi.BLUE + statement);
         statement.executeUpdate();
+        statement.close();
         databaseConnection.commit();
+        databaseConnection.close();
     }
 
     public static void executeUpdate(final String sql) throws SQLException {
+        Connection databaseConnection = DriverManager.getConnection(connectionString);
+        databaseConnection.setAutoCommit(false);
         PreparedStatement statement = databaseConnection.prepareStatement(sql);
         Logger.debug("Executing update statement: " + Ansi.BLUE + statement);
         statement.executeUpdate();
+        statement.close();
         databaseConnection.commit();
+        databaseConnection.close();
     }
 
     public static QueryResult executeFetch(final String sql, String[] parameters) throws SQLException {
+        Connection databaseConnection = DriverManager.getConnection(connectionString);
+        databaseConnection.setAutoCommit(false);
         PreparedStatement statement = databaseConnection.prepareStatement(sql);
         for (int i = 0; i < parameters.length; i++) {
             statement.setString(i + 1, parameters[i]);
         }
         Logger.debug("Executing fetch statement: " + Ansi.BLUE + statement);
         ResultSet results = statement.executeQuery();
-
+        statement.close();
+        results.close();
+        databaseConnection.close();
         return new QueryResult(results);
     }
 
     public static QueryResult executeFetch(final String sql) throws SQLException {
+        Connection databaseConnection = DriverManager.getConnection(connectionString);
+        databaseConnection.setAutoCommit(false);
         PreparedStatement statement = databaseConnection.prepareStatement(sql);
         Logger.debug("Executing fetch statement: " + Ansi.BLUE + statement);
         ResultSet results = statement.executeQuery();
-
+        statement.close();
+        results.close();
+        databaseConnection.close();
         return new QueryResult(results);
     }
 

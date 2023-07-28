@@ -47,7 +47,7 @@ public class CurseGuard extends JavaPlugin {
 
         try {
             String databaseFolderPath = createDataFolder();
-            Database.initDatabaseConnection(databaseFolderPath + File.separatorChar);
+            Database.setConnectionString(databaseFolderPath + File.separatorChar);
             Database.createInitialTables();
         } catch (SQLException e) {
             Logger.log(Ansi.RED + "Database init failed: " + e.getMessage() + Ansi.RESET);
@@ -67,7 +67,6 @@ public class CurseGuard extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        Database.closeDatabaseConnection();
     }
 
     private String createDataFolder() {
@@ -76,6 +75,7 @@ public class CurseGuard extends JavaPlugin {
         if (!databaseDir.exists()) {
             boolean succeeded = databaseDir.mkdirs();
             if (!succeeded) {
+                Logger.error("Failed to create data folder");
                 throw new RuntimeException("Failed to create data folder.");
             } else {
                 Logger.debug("Successfully created data folder at " + Ansi.BLUE + databaseDir.getAbsolutePath());

@@ -1,6 +1,7 @@
 package dev.spaxter.curseguard.command;
 
 import dev.spaxter.curseguard.core.Language;
+import dev.spaxter.curseguard.logging.Logger;
 import dev.spaxter.curseguard.models.Action;
 import dev.spaxter.curseguard.storage.GlobalMemory;
 import org.bukkit.command.Command;
