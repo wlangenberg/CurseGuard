@@ -14,6 +14,7 @@ public class AddWordCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String label, String[] args) {
         if (commandSender.hasPermission("curseguard.words.add")) {
             if (args.length != 2) {
+                Logger.log("Not enough parameters");
                 return false;
             }
             String word = args[0];

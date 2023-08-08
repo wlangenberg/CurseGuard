@@ -65,6 +65,7 @@ public class Guardian {
                 switch (action) {
                     case BLOCK: {
                         player.sendMessage(Language.Prefix.NOTIFICATION_PREFIX + Language.Notification.MESSAGE_BLOCKED.replace("%word%", word));
+                        Logger.log("Sent message");
                         e.setCancelled(true);
                         Logger.debug("Blocked word " + Ansi.PURPLE + word + Ansi.CYAN + " from " + Ansi.GREEN + player.getName() + "'s chat message");
                         Notifier.notifyStaffMembers(Language.Prefix.NOTIFICATION_PREFIX + Language.Notification.MESSAGE_BLOCKED_STAFF.replaceAll("%word%", word).replaceAll("%player%", player.getName()));
