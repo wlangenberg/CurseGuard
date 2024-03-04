@@ -1,6 +1,6 @@
 # CurseGuard
 
-CureGuard is a medium quality, lightweight and secure plugin that allows server administrators to set up a word filter for chat messages, sign texts and item names. This filter will either BLOCK or CENSOR a word being used in the aforementioned contexts.
+CureGuard is a medium to high quality, lightweight and secure plugin that allows server administrators to set up a word filter for chat messages, sign texts and item names. This filter will either BLOCK or CENSOR a word being used in the aforementioned contexts.
 
 # Features
 * **Blocking** - Block words from being used in chat, on signs and when renaming items.
